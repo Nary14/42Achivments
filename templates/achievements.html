@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Mes Achievements{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-8">
+    <!-- Header Section -->
+    <div class="mb-12">
+        <h1 class="text-4xl font-bold text-white mb-2">
+            Bonjour, {{ user.display_name }}
+        </h1>
+        <p class="text-slate-400">
+            Découvrez et réclamez vos achievements
+        </p>
+    </div>
+    
+    <!-- Achievements Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for achievement in achievements %}
+        <div class="bg-slate-800 rounded-lg p-6 border border-slate-700 hover:border-violet-500 transition">
+            <!-- Achievement Header -->
+            <div class="mb-4">
+                <h2 class="text-xl font-bold text-white mb-2">{{ achievement.name }}</h2>
+                <p class="text-slate-300 text-sm">{{ achievement.description }}</p>
+            </div>
+            
+            <!-- Category Badge -->
+            <div class="mb-4">
+                {% if achievement.category == "project" %}
+                    <span class="inline-block px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-xs font-semibold">
+                        {{ achievement.category }}
+                    </span>
+                {% elif achievement.category == "social" %}
+                    <span class="inline-block px-3 py-1 bg-green-900 text-green-200 rounded-full text-xs font-semibold">
+                        {{ achievement.category }}
+                    </span>
+                {% elif achievement.category == "scolarity" %}
+                    <span class="inline-block px-3 py-1 bg-yellow-900 text-yellow-200 rounded-full text-xs font-semibold">
+                        {{ achievement.category }}
+                    </span>
+                {% elif achievement.category == "pedagogy" %}
+                    <span class="inline-block px-3 py-1 bg-pink-900 text-pink-200 rounded-full text-xs font-semibold">
+                        {{ achievement.category }}
+                    </span>
+                {% endif %}
+            </div>
+            
+            <!-- Wallet Reward -->
+            <div class="mb-4">
+                <span class="text-violet-400 font-bold">+{{ achievement.wallet_reward }}₳</span>
+            </div>
+            
+            <!-- Claim Button or Status -->
+            <div class="mt-6">
+                {% if achievement.id in already_claimed %}
+                    <div class="inline-block px-4 py-2 bg-green-900 text-green-200 rounded font-semibold text-sm">
+                        ✓ Obtenu
+                    </div>
+                {% else %}
+                    <button 
+                        onclick="claimAchievement({{ achievement.id }})"
+                        class="w-full px-4 py-2 bg-violet-500 hover:bg-violet-600 text-white rounded font-semibold transition"
+                    >
+                        Réclamer
+                    </button>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    /**
+     * Claim an achievement by ID
+     * Sends POST request to /achievements/claim/<id>
+     * Reloads page on success or shows error alert
+     */
+    function claimAchievement(achievementId) {
+        fetch(`/achievements/claim/${achievementId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Reload page on success
+                window.location.reload();
+            } else {
+                // Handle error response
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Une erreur est survenue');
+                });
+            }
+        })
+        .catch(error => {
+            // Show error alert
+            alert(`Erreur: ${error.message}`);
+        });
+    }
+</script>
+{% endblock %}
