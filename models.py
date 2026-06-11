@@ -10,7 +10,7 @@ from extensions import db
 class User(db.Model):
     """User model - represents a 42 school student or staff member"""
     __tablename__ = "users"
-    
+
     # Unique identifier in the application database
     id = db.Column(db.Integer, primary_key=True)
     
