@@ -24,37 +24,39 @@
             </div>
             <div class="my-10 flex flex-wrap gap-4 justify-center">
                 <div class="card card-side bg-base-100 border-base-300 border">
+                    <div class="flex justify-center items-center-safe rounded-l-md bg-base-300 px-7">
+                        <Mouse/>
+                    </div>
                     <div class="card-body">
                         <h2 class="card-title">New movie is released!</h2>
                         <p>Click the button to watch on Jetflix app.</p>
-                    </div>
-                    <div class="flex justify-center items-center-safe rounded-r-2xl bg-base-300 px-7">
-                        <Mouse/>
                     </div>
                 </div>
                 <div class="card card-side bg-base-100 border-base-300 border">
+                    <div class="flex justify-center items-center-safe rounded-l-md bg-base-300 px-7">
+                        <Mouse/>
+                    </div>
                     <div class="card-body">
                         <h2 class="card-title">New movie is released!</h2>
                         <p>Click the button to watch on Jetflix app.</p>
                     </div>
-                    <div class="flex justify-center items-center-safe rounded-r-2xl bg-base-300 px-7">
+                </div>
+                <div class="card card-side bg-base-100 border-base-300 border">
+                    <div class="flex justify-center items-center-safe rounded-l-md bg-base-300 px-7">
                         <Mouse/>
                     </div>
-                </div><div class="card card-side bg-base-100 border-base-300 border">
                     <div class="card-body">
                         <h2 class="card-title">New movie is released!</h2>
                         <p>Click the button to watch on Jetflix app.</p>
                     </div>
-                    <div class="flex justify-center items-center-safe rounded-r-2xl bg-base-300 px-7">
+                </div>
+                <div class="card card-side bg-base-100 border-base-300 border">
+                    <div class="flex justify-center items-center-safe rounded-l-md bg-base-300 px-7">
                         <Mouse/>
                     </div>
-                </div><div class="card card-side bg-base-100 border-base-300 border">
                     <div class="card-body">
                         <h2 class="card-title">New movie is released!</h2>
                         <p>Click the button to watch on Jetflix app.</p>
-                    </div>
-                    <div class="flex justify-center items-center-safe rounded-r-2xl bg-base-300 px-7">
-                        <Mouse/>
                     </div>
                 </div>
             </div>

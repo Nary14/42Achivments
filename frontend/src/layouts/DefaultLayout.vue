@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="navbar-end space-x-5">
-        <p class="font-bold text-md">User</p>
+        <p class="font-bold text-md">Student_Login</p>
         <a class="btn btn-neutral">Logout</a>
       </div>
     </header>
