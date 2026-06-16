@@ -6,9 +6,9 @@
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal space-x-6">
-          <!-- <li><router-link to="/" class="font-semibold">Home</router-link></li>
-          <li><router-link to="/" class="font-semibold">Archievements</router-link></li>
-          <li><router-link to="/" class="font-semibold">staff</router-link></li> -->
+          <li><router-link to="/" class="font-semibold">Home</router-link></li>
+          <li><router-link to="/archievements" class="font-semibold">Archievements</router-link></li>
+          <!-- <li><router-link to="/" class="font-semibold">staff</router-link></li> -->
         </ul>
       </div>
       <div class="navbar-end space-x-5">
